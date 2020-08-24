@@ -27,8 +27,7 @@ io.on('connection', (socket) => {
   })
 
   // These events are emitted to all the sockets connected to the same room .
- 
-  socket.on('set_current', function(data) {
+  socket.on('set_current', (data)=> {
             console.log(`Broadcasting set_current event to peers in room ${data.roomId}`)
 
         io.sockets.in(data.roomId).emit('play_video',{roomId:data.roomId,yt_video_id:YT_VIDEO_ID,isRoomCreator:true})
